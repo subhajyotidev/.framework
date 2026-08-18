@@ -10,6 +10,25 @@
       ./hardware-configuration.nix
     ];
 
+  # Zswap & Zram
+  boot.initrd.luks.devices."cryptswap".device =
+  "/dev/disk/by-uuid/cc567761-515d-41e9-8878-e97f46aedd5f";
+
+  swapDevices = [
+  {
+    device = "/dev/mapper/cryptswap";
+  }
+];
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+};
+
+  boot.kernelParams = [
+    "zswap.enabled=1"
+];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -17,7 +36,6 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-e0d35ea0-1530-4ea6-961d-c7e853984e34".device = "/dev/disk/by-uuid/e0d35ea0-1530-4ea6-961d-c7e853984e34";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -27,9 +45,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Flake
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -102,6 +117,7 @@
        firefox
        nerd-fonts.jetbrains-mono
        xwayland-satellite
+       nautilus
     ];
   };
 
@@ -110,6 +126,20 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  services.gvfs = {
+    enable = true;
+    package = pkgs.gnome.gvfs;
+  };
+
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+    ];
+    auto-optimise-store = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -1,54 +1,66 @@
 {
   description = "My NixOS configuration";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    niri-source = {
+      url = "github:niri-wm/niri";
+      flake = false;
+    };
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:sodiboo/niri-flake/6bb99ff875919f03ea6054026619d999061e1170";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.niri-unstable.follows = "niri-source";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dms, ... }@inputs:
-  {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+  outputs = { self, ... }@inputs:
+  let
+    system = "x86_64-linux";
+    pkgs = import inputs.nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
 
-      specialArgs = {
-        inherit inputs;
-      };
+      overlays = [
+        inputs.niri.overlays.niri
+      ];
+    };
+  in
+  {
+    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs; };
 
       modules = [
         ./configuration.nix
 
-        home-manager.nixosModules.home-manager
-
+        inputs.niri.nixosModules.niri
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
+          programs.niri = {
+            enable = true;
+            package = pkgs.niri-unstable;
           };
-
-          home-manager.users.delllaptop = import ./subhajyoti.nix;
         }
+      ];
+    };
+
+    homeConfigurations.delllaptop = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = { inherit system inputs; };
+
+      modules = [
+        ./subhajyoti.nix
       ];
     };
   };
