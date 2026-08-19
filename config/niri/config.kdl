@@ -192,3 +192,28 @@ window-rule {
         }
     }
 }
+
+layer-rule {
+    match layer="top";
+    match layer="overlay";
+    match namespace="^dms(-clipboardPlus-panel|:)";
+
+    opacity 0.85;
+
+    background-effect {
+        xray false;
+    }
+}
+
+layer-rule {
+    match namespace="^dms-clipboardPlus-panel";
+
+    background-effect {
+        blur true;
+    }
+}
+
+window-rule {
+    match app-id="scratchpad-kitty"
+    open-floating true
+}
