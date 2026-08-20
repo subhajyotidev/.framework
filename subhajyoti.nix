@@ -83,7 +83,7 @@
     gtk4.theme = config.gtk.theme;
 };
   home.packages = with pkgs; [
-    qt6ct
+    qt6Packages.qt6ct
     libsForQt5.qt5ct
     lora
     poppins
