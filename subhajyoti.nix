@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -30,24 +35,24 @@
     config = builtins.readFile ./config/niri/config.kdl;
   };
 
- programs.git = {
-   enable = true;
+  programs.git = {
+    enable = true;
 
-   settings = {
-     user = {
-       name = "subhajyotidev";
-       email = "mrdeadlock8@gmail.com";
-    };
+    settings = {
+      user = {
+        name = "subhajyotidev";
+        email = "mrdeadlock8@gmail.com";
+      };
 
-    url = {
-      "git@github.com:".insteadOf = "gh:";
-      "git@gitlab.com:".insteadOf = "gl:";
-      "git@codeberg.org:".insteadOf = "cb:";
-      "git@git.sr.ht:".insteadOf = "sh:";
+      url = {
+        "git@github.com:".insteadOf = "gh:";
+        "git@gitlab.com:".insteadOf = "gl:";
+        "git@codeberg.org:".insteadOf = "cb:";
+        "git@git.sr.ht:".insteadOf = "sh:";
+      };
     };
   };
-};
- 
+
   programs.kitty = {
     enable = true;
 
@@ -64,39 +69,32 @@
       font_family = "Maple Mono NF";
       font_size = 14;
 
-      font_features =
-        "MapleMonoNF-Regular -calt -zero -cv02 +cv01 +cv61";
+      font_features = "MapleMonoNF-Regular -calt -zero -cv02 +cv01 +cv61";
 
       text_composition_strategy = "legacy";
       notify_on_select = "no";
-  };
+    };
 
     extraConfig = ''
       include themes/dankcolors.conf
-      '';
-};
+    '';
+  };
 
   xdg.configFile = {
-    "DankMaterialShell/settings.json".source =
-      ./config/dms/settings.json;
+    "DankMaterialShell/settings.json".source = ./config/dms/settings.json;
 
-    "DankMaterialShell/plugin_settings.json".source =
-      ./config/dms/plugin_settings.json;
+    "DankMaterialShell/plugin_settings.json".source = ./config/dms/plugin_settings.json;
 
-    "matugen".source =
-      ./config/matugen;
+    "matugen".source = ./config/matugen;
 
-    "qt5ct/qt5ct.conf".source =
-      ./config/qt5ct/qt5ct.conf;
+    "qt5ct/qt5ct.conf".source = ./config/qt5ct/qt5ct.conf;
 
-    "qt6ct/qt6ct.conf".source =
-      ./config/qt6ct/qt6ct.conf;
+    "qt6ct/qt6ct.conf".source = ./config/qt6ct/qt6ct.conf;
 
-    "niri/piri.toml".source =
-      ./config/piri/piri.toml;
+    "niri/piri.toml".source = ./config/piri/piri.toml;
 
-    "kitty/themes/dankcolors.conf".source =
-      ./config/kitty/themes/dankcolors.conf;
+    "matugen/templates/kitty/dankcolors.conf".source = ./config/matugen/templates/kitty/dankcolors.conf;
+
   };
 
   qt = {
@@ -104,8 +102,8 @@
 
     platformTheme = {
       name = "qtct";
+    };
   };
-};
 
   fonts.fontconfig = {
     enable = true;
@@ -114,8 +112,8 @@
       serif = [ "Lora" ];
       sansSerif = [ "Poppins" ];
       monospace = [ "Maple Mono NF" ];
+    };
   };
-};
 
   gtk = {
     enable = true;
@@ -123,15 +121,15 @@
     font = {
       name = "Poppins";
       size = 10;
-  };
+    };
 
     gtk3.theme = {
       name = "adw-gtk3";
       package = pkgs.adw-gtk3;
-  };
+    };
 
     gtk4.theme = config.gtk.theme;
-};
+  };
   home.packages = with pkgs; [
     qt6Packages.qt6ct
     libsForQt5.qt5ct
