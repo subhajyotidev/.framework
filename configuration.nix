@@ -137,7 +137,6 @@
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
-       helix
        kitty
        git
        alacritty

@@ -4,6 +4,7 @@
   imports = [
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
+    ./modules/features/terminal/helix.nix
   ];
 
   home.username = "delllaptop";
@@ -19,7 +20,7 @@
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;
 
     niri = {
-      enableKeybinds = true;
+      enableKeybinds = false;
       enableSpawn = true;
     };
   };
@@ -28,6 +29,52 @@
     package = pkgs.niri-unstable;
     config = builtins.readFile ./config/niri/config.kdl;
   };
+
+ programs.git = {
+   enable = true;
+
+   settings = {
+     user = {
+       name = "subhajyotidev";
+       email = "mrdeadlock8@gmail.com";
+    };
+
+    url = {
+      "git@github.com:".insteadOf = "gh:";
+      "git@gitlab.com:".insteadOf = "gl:";
+      "git@codeberg.org:".insteadOf = "cb:";
+      "git@git.sr.ht:".insteadOf = "sh:";
+    };
+  };
+};
+ 
+  programs.kitty = {
+    enable = true;
+
+    settings = {
+      shell = "fish";
+      shell_integration = "enabled";
+
+      hide_window_decorations = "yes";
+      window_padding_width = 10;
+
+      placement_strategy = "center";
+      resize_in_steps = "yes";
+
+      font_family = "Maple Mono NF";
+      font_size = 14;
+
+      font_features =
+        "MapleMonoNF-Regular -calt -zero -cv02 +cv01 +cv61";
+
+      text_composition_strategy = "legacy";
+      notify_on_select = "no";
+  };
+
+    extraConfig = ''
+      include themes/dankcolors.conf
+      '';
+};
 
   xdg.configFile = {
     "DankMaterialShell/settings.json".source =
@@ -47,6 +94,9 @@
 
     "niri/piri.toml".source =
       ./config/piri/piri.toml;
+
+    "kitty/themes/dankcolors.conf".source =
+      ./config/kitty/themes/dankcolors.conf;
   };
 
   qt = {
