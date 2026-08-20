@@ -172,6 +172,26 @@
         "type": "github"
       }
     },
+    "piri": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786069130,
+        "narHash": "sha256-mvd8AgEm6onM8L3CfowqcDxa5Kz16wu5rnbnyUHL8Vw=",
+        "owner": "Asthestarsfalll",
+        "repo": "piri",
+        "rev": "e898cad19bebe6db8163471da279b2a7e1c7cf85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Asthestarsfalll",
+        "repo": "piri",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "dgop": "dgop",
@@ -179,7 +199,8 @@
         "home-manager": "home-manager",
         "niri": "niri",
         "niri-source": "niri-source",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "piri": "piri"
       }
     },
     "xwayland-satellite-stable": {

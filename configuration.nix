@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nixi
+      ./hardware-configuration.nix
       inputs.piri.nixosModules.piri
     ];
 
