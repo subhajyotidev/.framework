@@ -81,6 +81,7 @@
           };
 
           modules = [
+            inputs.niri.homeModules.niri
             ./subhajyoti.nix
           ];
         };
