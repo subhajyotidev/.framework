@@ -82,6 +82,31 @@
   # Piri
   services.piri.enable = true;
 
+  # Fail2ban, nh..
+  services.fail2ban.enable = true;
+
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "pipe-operators"
+  ];
+
+  auto-optimise-store = true;
+};
+
+  programs.nix-ld.enable = true;
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/delllaptop/.framework";
+
+  clean = {
+    enable = true;
+    extraArgs = "--delete-older-than 7d --keep 2";
+  };
+};
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
