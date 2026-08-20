@@ -11,6 +11,8 @@
     inputs.dms.homeModules.niri
     ./modules/features/terminal/helix.nix
     ./modules/features/terminal/fish.nix
+    ./modules/features/browsers.nix
+    ./modules/features/browsers/librewolf.nix
   ];
 
   home.username = "delllaptop";
@@ -58,7 +60,6 @@
     enable = true;
 
     settings = {
-      shell = "fish";
       shell_integration = "enabled";
 
       hide_window_decorations = "yes";

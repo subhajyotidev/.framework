@@ -87,6 +87,9 @@
   # Piri
   services.piri.enable = true;
 
+  # Fish
+  programs.fish.enable = true;
+
   # Fail2ban, nh..
   services.fail2ban.enable = true;
 
@@ -138,7 +141,7 @@
   users.users."delllaptop" = {
     isNormalUser = true;
     description = "dell-laptop";
-    shell = "/etc/profiles/per-user/delllaptop/bin/fish";
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -167,15 +170,6 @@
   services.gvfs = {
     enable = true;
     package = pkgs.gnome.gvfs;
-  };
-
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-      "pipe-operators"
-    ];
-    auto-optimise-store = true;
   };
 
   # List packages installed in system profile. To search, run:

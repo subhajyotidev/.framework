@@ -39,9 +39,15 @@
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, ... }@inputs:
+  outputs =
+    { self, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -52,6 +58,7 @@
 
         overlays = [
           inputs.niri.overlays.niri
+          inputs.nur.overlays.default
         ];
       };
     in
@@ -77,18 +84,17 @@
         ];
       };
 
-      homeConfigurations.delllaptop =
-        inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+      homeConfigurations.delllaptop = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          extraSpecialArgs = {
-            inherit system inputs;
-          };
-
-          modules = [
-            inputs.niri.homeModules.niri
-            ./subhajyoti.nix
-          ];
+        extraSpecialArgs = {
+          inherit system inputs;
         };
+
+        modules = [
+          inputs.niri.homeModules.niri
+          ./subhajyoti.nix
+        ];
+      };
     };
 }

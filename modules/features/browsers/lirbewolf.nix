@@ -1,0 +1,261 @@
+{ lib, pkgs, ... }:
+
+{
+  programs.librewolf = {
+    enable = true;
+
+    nativeMessagingHosts = [
+      pkgs.pywalfox-native
+      pkgs.tridactyl-native
+    ];
+
+    profiles.default = {
+      isDefault = true;
+
+      search = {
+        default = "DuckDuckGo NoAI";
+
+        engines = {
+          "AUR" = {
+            definedAliases = [ "@aur" ];
+            icon = "https://wiki.archlinux.org/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
+            urls = [
+              {
+                template = "https://aur.archlinux.org/packages?K={searchTerms}";
+              }
+            ];
+          };
+
+          "Arch Wiki" = {
+            definedAliases = [ "@aw" ];
+            icon = "https://wiki.archlinux.org/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
+            urls = [
+              {
+                template = "https://wiki.archlinux.org/index.php?search={searchTerms}";
+              }
+            ];
+          };
+
+          "DuckDuckGo NoAI" = {
+            definedAliases = [ "@ddgna" ];
+            icon = "https://noai.duckduckgo.com/favicon.ico";
+            updateInterval = 24 * 60 * 60 * 1000;
+            urls = [
+              {
+                template = "https://noai.duckduckgo.com/?q={searchTerms}";
+              }
+            ];
+          };
+
+          "Nix Search" = {
+            definedAliases = [ "@ns" ];
+            icon = "https://nixsearch.thekoppe.com/apple-touch-icon.png";
+            updateInterval = 24 * 60 * 60 * 1000;
+            urls = [
+              {
+                template = "https://nixsearch.thekoppe.com/?q={searchTerms}";
+              }
+            ];
+          };
+
+          "NixOS Wiki" = {
+            definedAliases = [ "@nw" ];
+            icon = "https://wiki.nixos.org/nixos.png";
+            updateInterval = 24 * 60 * 60 * 1000;
+            urls = [
+              {
+                template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
+              }
+            ];
+          };
+
+          "Noogλe" = {
+            definedAliases = [ "@noo" ];
+            icon = "https://wiki.nixos.org/nixos.png";
+            updateInterval = 24 * 60 * 60 * 1000;
+            urls = [
+              {
+                template = "https://noogle.dev/q?term={searchTerms}";
+              }
+            ];
+          };
+        };
+
+        force = true;
+      };
+
+      extensions = {
+        packages = [
+          pkgs.nur.repos.rycee.firefox-addons.bitwarden
+          pkgs.nur.repos.rycee.firefox-addons.darkreader
+          pkgs.nur.repos.rycee.firefox-addons.pywalfox
+          pkgs.nur.repos.rycee.firefox-addons.tridactyl
+          pkgs.nur.repos.rycee.firefox-addons.ublock-origin
+          pkgs.nur.repos.rycee.firefox-addons.user-agent-string-switcher
+          pkgs.nur.repos.rycee.firefox-addons.violentmonkey
+        ];
+
+        force = true;
+      };
+
+      containers = {
+        "Personal" = {
+          id = 1;
+          color = "purple";
+          icon = "fingerprint";
+        };
+
+        "College" = {
+          id = 2;
+          color = "orange";
+          icon = "fence";
+        };
+
+        "Social Media" = {
+          id = 3;
+          color = "yellow";
+          icon = "circle";
+        };
+      };
+
+      containersForce = true;
+
+      bookmarks = {
+        force = true;
+
+        settings = [
+          {
+            name = "Cobalt Tools";
+            url = "https://cobalt.tools";
+          }
+          {
+            name = "Lemmy";
+            url = "https://lemmy.ml";
+          }
+          {
+            name = "Mastodon";
+            url = "https://hachyderm.io";
+          }
+          {
+            name = "Bluesky";
+            url = "https://bsky.app";
+          }
+          {
+            name = "Matrix";
+            url = "https://app.cinny.in";
+          }
+          {
+            name = "redlib.";
+            url = "https://redlib.catsarch.com";
+          }
+          {
+            name = "Nitter";
+            url = "https://xcancel.com";
+          }
+          {
+            name = "Invidious";
+            url = "https://inv.nadeko.net";
+          }
+          {
+            name = "Nix Channel Status";
+            url = "https://status.nixos.org";
+          }
+          {
+            name = "Sourcehut";
+            url = "https://sr.ht/~debarchito";
+          }
+          {
+            name = "Codeberg";
+            url = "https://codeberg.org/debarchito";
+          }
+          {
+            name = "GitHub";
+            url = "https://github.com/debarchito";
+          }
+          {
+            name = "CryptPad";
+            url = "https://crypt.unredacted.org";
+          }
+          {
+            name = "Board";
+            url = "https://board.unredacted.org";
+          }
+          {
+            name = "PasteBin";
+            url = "https://paste.unredacted.org";
+          }
+          {
+            name = "Jitsi";
+            url = "https://jitsi.unredacted.org";
+          }
+          {
+            name = "Share";
+            url = "https://share.unredacted.org";
+          }
+          {
+            name = "Nixpkgs Pull Request Tracker";
+            url = "https://nixpk.gs/pr-tracker.html";
+          }
+        ];
+      };
+
+      settings = {
+        "places.history.enabled" = false;
+        "general.autoScroll" = true;
+        "middlemouse.paste" = false;
+
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "svg.context-properties.content.enabled" = true;
+
+        "sidebar.revamp" = true;
+        "sidebar.position_start" = true;
+        "sidebar.visibility" = "hide-sidebar";
+
+        "parfait.animations.enabled" = true;
+        "parfait.blur.enabled" = false;
+        "parfait.bg.accent-color" = false;
+        "parfait.bg.contrast" = 2;
+        "parfait.bg.gradient" = false;
+        "parfait.bg.opacity" = 4;
+        "parfait.bg.transparent" = false;
+        "parfait.tabs.groups.color" = false;
+        "parfait.sidebar.width.preset" = 2;
+        "parfait.theme.lwt.alt" = false;
+        "parfait.theme.roundness.preset" = 1;
+        "parfait.toolbar.sidebar-gutter" = true;
+        "parfait.toolbar.unified-sidebar" = true;
+        "parfait.traffic-lights.enabled" = false;
+        "parfait.traffic-lights.mono" = false;
+        "parfait.urlbar.url.center" = false;
+        "parfait.urlbar.results.compact" = false;
+        "parfait.urlbar.search-mode.glow" = true;
+        "parfait.window.borderless" = false;
+        "parfait.new-tab.logo" = 1;
+        "parfait.new-tab.bg.pattern" = false;
+
+        "browser.tabs.inTitlebar" = 0;
+      };
+    };
+  };
+
+  home.file.".librewolf/default/chrome".source = pkgs.fetchFromGitHub {
+    owner = "debarchito";
+    repo = "parfait";
+    rev = "581be2d5f5793c5c664c002e800c0a3d372a0bd8";
+    hash = "sha256-jRX9gqHMuktQDeS8Rr/IEC3jXb8ba5/wzsuwAd4bJy0=";
+  };
+
+  home.activation.pywalfox-native-install-librewolf = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/.cache/wal"
+    ln -sf "$HOME/.cache/wal/dank-pywalfox.json" \
+      "$HOME/.cache/wal/colors.json"
+
+    ${lib.getExe pkgs.pywalfox-native} \
+      install --manifest-path "$HOME/.librewolf/native-messaging-hosts" \
+              --profile-path "$HOME/.librewolf/default"
+  '';
+
+  xdg.configFile."tridactyl/tridactylrc".source = ./librewolf/extensions/tridactyl/tridactylrc;
+}
