@@ -56,10 +56,64 @@
     name = "qtct";
     package = pkgs.qt6Packages.qt6ct;
    };
+
+  fonts.fontconfig = {
+  enable = true;
+
+  defaultFonts = {
+    serif = [
+      "Lora"
+      "Noto Serif CJK JP"
+      "Noto Serif CJK SC"
+      "Noto Serif CJK TC"
+      "Noto Serif CJK HK"
+      "Noto Serif CJK KR"
+    ];
+
+    sansSerif = [
+      "Poppins"
+      "Noto Sans CJK JP"
+      "Noto Sans CJK SC"
+      "Noto Sans CJK TC"
+      "Noto Sans CJK HK"
+      "Noto Sans CJK KR"
+    ];
+
+    monospace = [
+      "Maple Mono NF"
+      "Noto Sans Mono CJK JP"
+      "Noto Sans Mono CJK SC"
+      "Noto Sans Mono CJK TC"
+      "Noto Sans Mono CJK HK"
+      "Noto Sans Mono CJK KR"
+    ];
+  };
+};
+
+  gtk = {
+    enable = true;
+
+    font = {
+      name = "Poppins";
+      size = 10;
+  };
+
+  gtk3.theme = {
+    name = "adw-gtk3";
+    package = pkgs.adw-gtk3;
+  };
+
+  gtk4.theme = config.gtk.theme;
+ };
 };
 
   home.packages = with pkgs; [
     qt6Packages.qt6ct
     libsForQt5.qt5ct
+    lora
+    poppins
+    maple-mono.NF
+    adw-gtk3
+    papirus-icon-theme
   ];
 }
