@@ -138,7 +138,7 @@
   users.users."delllaptop" = {
     isNormalUser = true;
     description = "dell-laptop";
-    shell = pkgs.fish;
+    shell = "/etc/profiles/per-user/delllaptop/bin/fish";
     extraGroups = [
       "networkmanager"
       "wheel"
