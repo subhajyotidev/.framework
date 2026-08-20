@@ -1,14 +1,9 @@
-{ config, pkgs, inputs, system, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
-    inputs.niri.homeModules.niri
-    inputs.dms.homeModules.niri
     inputs.dms.homeModules.dank-material-shell
-  ];
-
-  nixpkgs.overlays = [
-    inputs.niri.overlays.niri
+    inputs.dms.homeModules.niri
   ];
 
   home.username = "delllaptop";
@@ -17,46 +12,54 @@
 
   programs.home-manager.enable = true;
 
+  programs.dank-material-shell = {
+    enable = true;
+    enableSystemMonitoring = true;
+
+    dgop.package = inputs.dgop.packages.${pkgs.system}.default;
+
+    niri = {
+      enableKeybinds = true;
+      enableSpawn = true;
+    };
+  };
+
   programs.niri = {
     package = pkgs.niri-unstable;
     config = builtins.readFile ./config/niri/config.kdl;
   };
 
-  programs.dank-material-shell = {
+  xdg.configFile = {
+    "DankMaterialShell/settings.json".source =
+      ./config/dms/settings.json;
+
+    "DankMaterialShell/plugin_settings.json".source =
+      ./config/dms/plugin_settings.json;
+
+    "matugen".source =
+      ./config/matugen;
+
+    "qt5ct/qt5ct.conf".source =
+      ./config/qt5ct/qt5ct.conf;
+
+    "qt6ct/qt6ct.conf".source =
+      ./config/qt6ct/qt6ct.conf;
+
+    "niri/piri.toml".source =
+      ./config/piri/piri.toml;
+  };
+
+  qt = {
     enable = true;
-    niri.includes.enable = false;
+
+    platformTheme = {
+      name = "qtct";
+      package = pkgs.qt6ct;
+    };
   };
+
+  home.packages = with pkgs; [
+    qt6ct
+    libsForQt5.qt5ct
+  ];
 }
-
-xdg.configFile = {
-  "DankMaterialShell/settings.json".source =
-    ./config/dms/settings.json;
-
-  "DankMaterialShell/plugin_settings.json".source =
-    ./config/dms/plugin_settings.json;
-
-  "matugen".source =
-    ./config/matugen;
-
-  "qt5ct/qt5ct.conf".source =
-    ./config/qt5ct/qt5ct.conf;
-
-  "qt6ct/qt6ct.conf".source =
-    ./config/qt6ct/qt6ct.conf;
-
-  "niri/piri.toml".source =
-    ./config/piri/piri.toml;
-};
-
-qt = {
-  enable = true;
-  platformTheme = {
-    name = "qtct";
-    package = pkgs.qt6ct;
-  };
-};
-
-home.packages = with pkgs; [
-  qt6ct
-  libsForQt5.qt5ct
-];
