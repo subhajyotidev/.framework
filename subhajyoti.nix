@@ -10,6 +10,7 @@
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
     ./modules/features/terminal/helix.nix
+    ./modules/features/terminal/fish.nix
   ];
 
   home.username = "delllaptop";
@@ -75,6 +76,35 @@
       notify_on_select = "no";
     };
 
+    programs.zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    programs.fzf = {
+      enable = true;
+
+      defaultCommand = "fd --hidden --strip-cwd-prefix --exclude .git";
+
+      changeDirWidget = {
+        command = "fd --type=d --hidden --strip-cwd-prefix --exclude .git";
+
+        options = [
+          "--preview 'eza --tree --color=always {} | head -200'"
+        ];
+      };
+
+      fileWidget = {
+        command = "fd --hidden --strip-cwd-prefix --exclude .git";
+
+        options = [
+          "--preview 'bat --color=always -n --line-range :500 {}'"
+        ];
+      };
+
+      historyWidget.command = "";
+    };
+
     extraConfig = ''
       include themes/dankcolors.conf
     '';
@@ -94,6 +124,8 @@
     "niri/piri.toml".source = ./config/piri/piri.toml;
 
     "matugen/templates/kitty/dankcolors.conf".source = ./config/matugen/templates/kitty/dankcolors.conf;
+
+    "matugen/templates/fish/dankcolors.fish".source = ./config/matugen/templates/fish/dankcolors.fish;
 
   };
 
@@ -138,5 +170,24 @@
     maple-mono.NF
     adw-gtk3
     papirus-icon-theme
+
+    # Fish Stuff
+    fish
+    fzf
+    ripgrep
+    ripgrep-all
+    nix-search-tv
+    nix-output-monitor
+    zoxide
+    scrcpy
+    linuxPackages.cpupower
+    jujutsu
+    koji
+    fd
+    wl-clipboard
+    nix-prefetch-github
+    jq
+    eza
+    bat
   ];
 }

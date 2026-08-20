@@ -2,33 +2,38 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.piri.nixosModules.piri
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.piri.nixosModules.piri
+  ];
 
   # Zswap & Zram
   boot.initrd.luks.devices."cryptswap".device =
-  "/dev/disk/by-uuid/cc567761-515d-41e9-8878-e97f46aedd5f";
+    "/dev/disk/by-uuid/cc567761-515d-41e9-8878-e97f46aedd5f";
 
   swapDevices = [
-  {
-    device = "/dev/mapper/cryptswap";
-  }
-];
+    {
+      device = "/dev/mapper/cryptswap";
+    }
+  ];
 
   zramSwap = {
     enable = true;
     memoryPercent = 50;
-};
+  };
 
   boot.kernelParams = [
     "zswap.enabled=1"
-];
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -90,10 +95,10 @@
       "nix-command"
       "flakes"
       "pipe-operators"
-  ];
+    ];
 
-  auto-optimise-store = true;
-};
+    auto-optimise-store = true;
+  };
 
   programs.nix-ld.enable = true;
 
@@ -101,11 +106,11 @@
     enable = true;
     flake = "/home/delllaptop/.framework";
 
-  clean = {
-    enable = true;
-    extraArgs = "--delete-older-than 7d --keep 2";
+    clean = {
+      enable = true;
+      extraArgs = "--delete-older-than 7d --keep 2";
+    };
   };
-};
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -133,19 +138,23 @@
   users.users."delllaptop" = {
     isNormalUser = true;
     description = "dell-laptop";
-    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
-       kitty
-       git
-       alacritty
-       fuzzel
-       swaybg
-       firefox
-       nerd-fonts.jetbrains-mono
-       xwayland-satellite
-       nautilus
+      #  thunderbird
+      kitty
+      git
+      alacritty
+      fuzzel
+      swaybg
+      firefox
+      nerd-fonts.jetbrains-mono
+      xwayland-satellite
+      nautilus
     ];
   };
 
@@ -172,8 +181,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

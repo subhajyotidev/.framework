@@ -36,6 +36,11 @@ output_path = "~/.config/obs-studio/themes/dankcolors.obt"
 [templates.papirus-folders]
 input_path = "~/.config/matugen/templates/matugen/placeholder"
 output_path = "~/.cache/matugen/placeholder"
+
+[templates.fish]
+input_path = "~/.config/matugen/templates/fish/dankcolors.fish"
+output_path = "~/.config/fish/conf.d/dankcolors.fish"
+
 colors_to_compare = [
   { name = "adwaita", color = "#93C0EA" },
   { name = "blue", color = "#5294E2" },
