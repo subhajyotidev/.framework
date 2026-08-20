@@ -54,7 +54,6 @@
 
     platformTheme = {
       name = "qtct";
-      package = pkgs.qt6ct;
   };
 };
 
@@ -62,17 +61,9 @@
     enable = true;
 
     defaultFonts = {
-      serif = [
-        "Lora"
-    ];
-
-      sansSerif = [
-        "Poppins"
-    ];
-
-      monospace = [
-        "Maple Mono NF"
-    ];
+      serif = [ "Lora" ];
+      sansSerif = [ "Poppins" ];
+      monospace = [ "Maple Mono NF" ];
   };
 };
 
@@ -92,7 +83,7 @@
     gtk4.theme = config.gtk.theme;
 };
   home.packages = with pkgs; [
-    qt6Packages.qt6ct
+    qt6ct
     libsForQt5.qt5ct
     lora
     poppins
