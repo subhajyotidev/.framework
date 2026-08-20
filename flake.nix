@@ -23,7 +23,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.niri-unstable.follows = "niri-source";
     };
-  };
+    piri = {
+      url = "github:Asthestarsfalll/piri";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   outputs = { self, ... }@inputs:
   let

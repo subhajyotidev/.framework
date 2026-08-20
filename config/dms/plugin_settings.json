@@ -1,0 +1,106 @@
+{
+  "batteryPlus": {
+    "enabled": true
+  },
+  "dockerManager": {
+    "enabled": true,
+    "dockerBinary": "podman",
+    "terminalApp": "kitty",
+    "shellPath": "/home/@USERNAME@/.nix-profile/bin/fish"
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "e100d420_afce_4f41_bb37_58887ccfc478"
+  },
+  "dankNotepadModule": {
+    "enabled": true,
+    "style": "github-dark"
+  },
+  "easyEffects": {
+    "enabled": true,
+    "currentOutputIndex": -1,
+    "currentInputIndex": -1
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "=",
+    "noTrigger": false,
+    "calcEngine": "qalc"
+  },
+  "commandRunner": {
+    "enabled": true,
+    "terminal": "kitty",
+    "history": [
+      "labwc --startup eden",
+      "labwc --startup reaper",
+      "labwc --startup ryujinx",
+      "scrcpy --new-display=1920x1080/240 --window-x 0 --window-y 0"
+    ],
+    "trigger": "$",
+    "noTrigger": false
+  },
+  "emojiLauncher": {
+    "enabled": true,
+    "noTrigger": false,
+    "trigger": ":"
+  },
+  "niriWindows": {
+    "enabled": true,
+    "noTrigger": false,
+    "trigger": "!"
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": [],
+    "defaultEngine": "duckduckgo",
+    "noTrigger": false,
+    "trigger": ">",
+    "disabledEngines": [
+      "brave",
+      "bing",
+      "kagi",
+      "ebay",
+      "linkedin",
+      "imdb"
+    ]
+  },
+  "dankHooks": {
+    "enabled": true
+  },
+  "clipboardPlus": {
+    "enabled": true,
+    "tabOrder": "clipboard,search,category,pinned,todo",
+    "tabOrderEnabled": "clipboard,search,category,pinned,todo",
+    "backgroundOpacity": 20,
+    "showBarWidget": false,
+    "showPanelSeparator": true,
+    "hidePanelBackground": false,
+    "panelOpacityPinned": 20,
+    "listenClipboardWhileOpen": true,
+    "panelOpacityClipboard": 100,
+    "maxPinnedImageMb": 5,
+    "maxPinnedTextMb": 1,
+    "showCloseButton": true,
+    "panelMarginTop": 0,
+    "enableAnimations": true,
+    "closeOnOutsideClick": true
+  },
+  "dankPinentry": {
+    "enabled": true
+  },
+  "wallpaperCarousel": {
+    "enabled": true,
+    "wallpaperDirectory": "/home/@USERNAME@/Pictures/Wallpapers",
+    "itemWidth": 300,
+    "itemHeight": 420,
+    "expandMultiplier": 116,
+    "carouselMode": "infinite",
+    "overlayOpacity": 100,
+    "borderWidth": 0,
+    "cornerRadius": 5,
+    "selectedScale": 110,
+    "expandSelected": "false",
+    "enableHoldExpand": "false",
+    "holdExpandRatio": 33
+  }
+}

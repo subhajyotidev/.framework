@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware-configuration.nixi
+      inputs.piri.nixosModules.piri
     ];
 
   # Zswap & Zram
@@ -77,6 +78,9 @@
     layout = "us";
     variant = "";
   };
+
+  # Piri
+  services.piri.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -27,3 +27,36 @@
     niri.includes.enable = false;
   };
 }
+
+xdg.configFile = {
+  "DankMaterialShell/settings.json".source =
+    ./config/dms/settings.json;
+
+  "DankMaterialShell/plugin_settings.json".source =
+    ./config/dms/plugin_settings.json;
+
+  "matugen".source =
+    ./config/matugen;
+
+  "qt5ct/qt5ct.conf".source =
+    ./config/qt5ct/qt5ct.conf;
+
+  "qt6ct/qt6ct.conf".source =
+    ./config/qt6ct/qt6ct.conf;
+
+  "niri/piri.toml".source =
+    ./config/piri/piri.toml;
+};
+
+qt = {
+  enable = true;
+  platformTheme = {
+    name = "qtct";
+    package = pkgs.qt6ct;
+  };
+};
+
+home.packages = with pkgs; [
+  qt6ct
+  libsForQt5.qt5ct
+];
