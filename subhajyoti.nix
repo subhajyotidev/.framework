@@ -52,14 +52,14 @@
   qt = {
     enable = true;
 
-    platformTheme = {
-      name = "qtct";
-      package = pkgs.qt6ct;
-    };
-  };
+  platformTheme = {
+    name = "qtct";
+    package = pkgs.qt6Packages.qt6ct;
+   };
+};
 
   home.packages = with pkgs; [
-    qt6ct
+    qt6Packages.qt6ct
     libsForQt5.qt5ct
   ];
 }
