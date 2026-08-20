@@ -27,6 +27,7 @@
       url = "github:Asthestarsfalll/piri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
 
   outputs = { self, ... }@inputs:
   let
@@ -67,3 +68,4 @@
       ];
     };
   };
+};
