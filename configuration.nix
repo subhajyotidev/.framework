@@ -19,7 +19,6 @@
     ./modules/features/trusted-substituters.nix
     ./modules/features/virtualisation.nix
     ./modules/features/media.nix
-    ./modules/features/graphics.nix
     inputs.piri.nixosModules.piri
   ];
 
@@ -82,7 +81,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = false;
   # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
