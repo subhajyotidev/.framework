@@ -13,6 +13,7 @@
     ./modules/features/terminal/fish.nix
     ./modules/features/browsers.nix
     ./modules/features/browsers/librewolf.nix
+    ./modules/features/browsers/helium.nix
   ];
 
   home.username = "delllaptop";
