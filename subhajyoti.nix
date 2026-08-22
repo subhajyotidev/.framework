@@ -14,6 +14,11 @@
     ./modules/features/browsers.nix
     ./modules/features/browsers/librewolf.nix
     ./modules/features/browsers/helium.nix
+    ./modules/features/terminal/starship.nix
+    ./modules/features/terminal/yazi.nix
+    ./modules/features/terminal/zellij.nix
+    ./modules/features/editors/emacs.nix
+    ./modules/features/editors/zed-editor.nix
   ];
 
   home.username = "delllaptop";
