@@ -93,6 +93,14 @@
   # Fail2ban, nh..
   services.fail2ban.enable = true;
 
+  # some needed services
+  services.accounts-daemon.enable = true;
+  services.colord.enable = true;
+  services.fwupd.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
+  services.avahi.enable = true;
+
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -120,6 +128,7 @@
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
+  security.polkit.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -175,6 +184,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cups-pk-helper
+    normcap
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];
