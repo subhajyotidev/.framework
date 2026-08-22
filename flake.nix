@@ -25,7 +25,7 @@
     };
 
     niri = {
-      url = "github:sodiboo/niri-flake/6bb99ff875919f03ea6054026619d999061e1170";
+      url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.niri-unstable.follows = "niri-source";
     };
@@ -44,6 +44,8 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =

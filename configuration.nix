@@ -22,6 +22,10 @@
     inputs.piri.nixosModules.piri
   ];
 
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.pinned
+  ];
+
   # Zswap & Zram
   boot.initrd.luks.devices."cryptswap".device =
     "/dev/disk/by-uuid/cc567761-515d-41e9-8878-e97f46aedd5f";
@@ -45,8 +49,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+  boot.kernelModules = [ "ntsync" ];
+  boot.tmp.cleanOnBoot = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -76,20 +81,6 @@
     LC_TIME = "en_IN";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = false;
-  # services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Piri
   services.piri.enable = true;
 
@@ -113,7 +104,6 @@
       "flakes"
       "pipe-operators"
     ];
-
     auto-optimise-store = true;
   };
 
@@ -122,7 +112,6 @@
   programs.nh = {
     enable = true;
     flake = "/home/delllaptop/.framework";
-
     clean = {
       enable = true;
       extraArgs = "--delete-older-than 7d --keep 2";
@@ -132,27 +121,22 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."delllaptop" = {
     isNormalUser = true;
     description = "dell-laptop";
-    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
+      "kvm"
     ];
     packages = with pkgs; [
-      kdePackages.kate
       #  thunderbird
       kitty
       git
       alacritty
       fuzzel
       swaybg
-      firefox
       nerd-fonts.jetbrains-mono
       xwayland-satellite
       nautilus
