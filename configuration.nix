@@ -14,6 +14,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/features/containers.nix
+    ./modules/features/gaming.nix
+    ./modules/features/trusted-substituters.nix
+    ./modules/features/virtualisation.nix
     inputs.piri.nixosModules.piri
   ];
 
@@ -176,6 +179,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Allow unfree-pkgs for steamixpkgs.config.allowUnfree = true;
 
   services.gvfs = {
     enable = true;
