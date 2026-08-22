@@ -18,6 +18,8 @@
     ./modules/features/gaming.nix
     ./modules/features/trusted-substituters.nix
     ./modules/features/virtualisation.nix
+    ./modules/features/media.nix
+    ./modules/features/graphics.nix
     inputs.piri.nixosModules.piri
   ];
 

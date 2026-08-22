@@ -19,8 +19,6 @@
     ./modules/features/terminal/zellij.nix
     ./modules/features/editors/emacs.nix
     ./modules/features/editors/zed-editor.nix
-    ./modules/features/graphics.nix
-    ./modules/features/media.nix
   ];
 
   home.username = "delllaptop";
