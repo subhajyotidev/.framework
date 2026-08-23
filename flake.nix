@@ -45,6 +45,29 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+    };
+
+    waydroid-script = {
+      url = "github:casualsnek/waydroid_script";
+    };
+
+    pinentry-dms = {
+      url = "github:debarchito/dankpinentry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mfctl = {
+      url = "sourcehut:~debarchito/mfctl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 

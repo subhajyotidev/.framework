@@ -1,13 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  # Bluetooth
-  hardware.bluetooth.enable = true;
-
-  # PipeWire
-  services.pulseaudio.enable = false;
-
-  security.rtkit.enable = true;
+  imports = [
+    inputs.musnix.nixosModules.musnix
+    inputs.mfctl.nixosModules.default
+  ];
 
   services.pipewire = {
     enable = true;
@@ -21,8 +18,28 @@
     wireplumber.enable = true;
   };
 
-  # Audio routing tool
+  programs.mfctl.enable = true;
+
+  hardware.bluetooth.enable = true;
+
   environment.systemPackages = [
     pkgs.qpwgraph
   ];
+
+  musnix = {
+    enable = true;
+    rtcqs.enable = true;
+
+    kernel.packages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+  };
+
+  services.pipewire.extraConfig.jack = {
+    "10-clock-rate" = {
+      "jack.properties" = {
+        "node.latency" = "128/48000";
+        "node.rate" = "1/48000";
+        "node.lock-quantum" = true;
+      };
+    };
+  };
 }

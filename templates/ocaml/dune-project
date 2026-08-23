@@ -1,0 +1,24 @@
+(lang dune 3.24)
+
+(name {{name:s}})
+
+(generate_opam_files true)
+
+(cram enable)
+
+(source
+ (sourcehut debarchito/{{name:k}}))
+
+(authors "Debarchito Nath <debarchiton@proton.me>")
+
+(maintainers "Debarchito Nath <debarchiton@proton.me>")
+
+(package
+ (name {{name:s}})
+ (synopsis "{{synopsis}}")
+ (description "{{description}}")
+ (depends
+  (ocaml
+   (>= "5.5.0")))
+ (tags
+  ("{{name:k}}")))

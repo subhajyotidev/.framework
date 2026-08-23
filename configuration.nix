@@ -19,6 +19,10 @@
     ./modules/features/trusted-substituters.nix
     ./modules/features/virtualisation.nix
     ./modules/features/media.nix
+    ./modules/features/networking.nix
+    ./modules/features/packaging.nix
+    ./modules/packages.nix
+    ./modules/packages/daw.nix
     inputs.piri.nixosModules.piri
   ];
 
@@ -53,15 +57,11 @@
   boot.kernelModules = [ "ntsync" ];
   boot.tmp.cleanOnBoot = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -97,6 +97,8 @@
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
   services.avahi.enable = true;
+  security.polkit.enable = true;
+  security.rtkit.enable = true;
 
   nix.settings = {
     experimental-features = [

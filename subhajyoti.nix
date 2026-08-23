@@ -9,6 +9,7 @@
   imports = [
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     ./modules/features/terminal/helix.nix
     ./modules/features/terminal/fish.nix
     ./modules/features/browsers.nix
@@ -27,6 +28,26 @@
 
   programs.home-manager.enable = true;
 
+  services.flatpak = {
+    enable = true;
+
+    remotes = [
+      {
+        name = "flathub";
+        location = "https://flathub.org/repo/flathub.flatpakrepo";
+      }
+    ];
+
+    packages = [
+      "com.github.tchx84.Flatseal"
+      "io.github.flattool.Warehouse"
+      "com.usebottles.bottles"
+    ];
+
+    update.auto.enable = true;
+    update.auto.onCalendar = "daily";
+  };
+
   programs.dank-material-shell = {
     enable = true;
     enableSystemMonitoring = true;
@@ -37,6 +58,15 @@
       enableKeybinds = false;
       enableSpawn = true;
     };
+  };
+
+  programs.obs-studio = {
+    enable = true;
+
+    plugins = [
+      pkgs.obs-studio-plugins.obs-pipewire-audio-capture
+      pkgs.obs-studio-plugins.obs-vkcapture
+    ];
   };
 
   programs.niri = {
@@ -60,6 +90,14 @@
         "git@git.sr.ht:".insteadOf = "sh:";
       };
     };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    enableFishIntegration = true;
+    enableSshSupport = true;
+
+    pinentry.package = pkgs.pinentry-dms;
   };
 
   programs.kitty = {
@@ -113,10 +151,39 @@
     historyWidgetOptions = [ ];
   };
 
+    home.file = {
+    ".clap/NeuralRack.clap".source =
+      "${pkgs.neuralrack}/lib/clap/NeuralRack.clap";
+
+    ".clap/Ratatouille.clap".source =
+      "${pkgs.ratatouille}/lib/clap/Ratatouille.clap";
+
+    ".clap/Plugdata.clap".source =
+      "${pkgs.plugdata}/lib/clap/Plugdata.clap";
+
+    ".clap/Cardinal.clap".source =
+      "${pkgs.cardinal}/lib/clap/Cardinal.clap";
+
+    ".clap/DragonflyReverb.clap".source =
+      "${pkgs.dragonfly-reverb}/lib/clap";
+
+    ".clap/LSPPlugins.clap".source =
+      "${pkgs.lsp-plugins}/lib/clap";
+
+    ".clap/SurgeXT.clap".source =
+      "${pkgs.surge-xt}/lib/clap";
+
+    ".lv2/x42Plugins.lv2".source =
+      "${pkgs.x42-plugins}/lib/lv2";
+
+    ".vst3/Stochas.vst3".source =
+      "${pkgs.stochas}/lib/vst3/Stochas.vst3";
+  };
+
   xdg.configFile = {
     "DankMaterialShell/settings.json".source = ./config/dms/settings.json;
 
-    "DankMaterialShell/plugin_settings.json".source = ./config/dms/plugin_settings.json;
+    "DankMaterialShell/plugin_settings.json".source = ./config/dms/plugin_settings.json;~/.framework/modules/packages
 
     "matugen".source = ./config/matugen;
 
@@ -130,6 +197,11 @@
 
     "matugen/templates/fish/dankcolors.fish".source = ./config/matugen/templates/fish/dankcolors.fish;
 
+     "REAPER/UserPlugins/reaper_reapack-x86_64.so".source =
+      "${pkgs.reaper-reapack-extension}/UserPlugins/reaper_reapack-x86_64.so";
+
+    "REAPER/UserPlugins/reaper_sws-x86_64.so".source =
+      "${pkgs.reaper-sws-extension}/UserPlugins/reaper_sws-x86_64.so";
   };
 
   qt = {
@@ -173,6 +245,11 @@
     maple-mono.NF
     adw-gtk3
     papirus-icon-theme
+    papirus-folders
+    blender
+    generate
+    sioyek
+    wiiudownloader
 
     # Fish Stuff
     fish
@@ -192,5 +269,10 @@
     jq
     eza
     bat
+
+    # DAW
+    reaper
+    yabridge
+    yabridgectl
   ];
 }
