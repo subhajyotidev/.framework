@@ -148,7 +148,7 @@
           owner = "debarchito";
           repo = "dms-plugins";
           rev = "3ad0e7845b62a9aca56f7959dd086b2a85655079";
-          hash = "sha256-ygsn92Yt4e5YHutGnkTzb5rAuoiB5STYAQaORUjlqRk=";
+          hash = "sha256-gb+k5dsbPjV8KFFFC7Pvpm2AnMnPl+t27Okl5WoVXd8=";
           sparseCheckout = [ "DankHooks" ];
         };
       };
@@ -158,7 +158,7 @@
           owner = "debarchito";
           repo = "dms-plugins";
           rev = "3ad0e7845b62a9aca56f7959dd086b2a85655079";
-          hash = "sha256-ygsn92Yt4e5YHutGnkTzb5rAuoiB5STYAQaORUjlqRk=";
+          hash = "sha256-gb+k5dsbPjV8KFFFC7Pvpm2AnMnPl+t27Okl5WoVXd8=";
           sparseCheckout = [ "DankKDEConnect" ];
         };
       };
@@ -168,7 +168,7 @@
           owner = "debarchito";
           repo = "dms-plugins";
           rev = "3ad0e7845b62a9aca56f7959dd086b2a85655079";
-          hash = "sha256-ygsn92Yt4e5YHutGnkTzb5rAuoiB5STYAQaORUjlqRk=";
+          hash = "sha256-gb+k5dsbPjV8KFFFC7Pvpm2AnMnPl+t27Okl5WoVXd8=";
           sparseCheckout = [ "DankNotepadModule" ];
         };
       };
@@ -178,7 +178,7 @@
           owner = "debarchito";
           repo = "dankPinentry";
           rev = "02df8bceb651bdbc5fdc7a07b5f6f19e60c3906a";
-          hash = "sha256-TmaRMZEHLatEjV5dIZqgEJMdqcK8CtG5mL++vWVlckg=";
+          hash = "sha256-vyDIpTClqE1UheULRdVzg2XOr1BEhN+mWJPkMbn3V2g=";
           sparseCheckout = [ "plugin" ];
         };
       };
@@ -188,7 +188,7 @@
           owner = "debarchito";
           repo = "dadan-dms-plugins";
           rev = "63fe6b87c497f1f7c2ea61432716817db1c5c3a4";
-          hash = "sha256-/iIqBej8dFwOQpvO9PXFvnDwZMSA7IykzaQjl5xoJUs=";
+          hash = "sha256-m4XMKkBK8cxl3nj5J/2tbwU9hbO/Qu6Xo6SEcprFG1Q=";
           sparseCheckout = [ "ClipboardPlus" ];
         };
       };
