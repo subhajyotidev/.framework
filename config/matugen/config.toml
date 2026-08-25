@@ -9,10 +9,6 @@ post_hook = "bat cache --build"
 input_path = "~/.config/matugen/templates/vesktop/dankcolors.css"
 output_path = "~/.config/vesktop/themes/dankcolors.css"
 
-[templates.emacs]
-input_path = "~/.config/matugen/templates/emacs/dankcolors-theme.el"
-output_path = "~/.cache/emacs/themes/dankcolors-theme.el"
-
 [templates.fish]
 input_path = "~/.config/matugen/templates/fish/dankcolors.fish"
 output_path = "~/.config/fish/conf.d/dankcolors.fish"
@@ -68,15 +64,10 @@ colors_to_compare = [
   { name = "violet", color = "#7E57C2" },
 ]
 compare_to = "{{colors.primary.default.hex}}"
-post_hook = "papirus-folders -C {{closest_color}} --theme Papirus"
 
 [templates.tridactyl]
 input_path = "~/.config/matugen/templates/tridactyl/dankcolors.css"
 output_path = "~/.config/tridactyl/themes/dankcolors.css"
-
-[templates.vesktop]
-input_path = "~/.config/matugen/templates/vesktop/dankcolors.css"
-output_path = "~/.config/vesktop/themes/dankcolors.css"
 
 [templates.wlr-which-key]
 input_path = "~/.config/matugen/templates/wlr-which-key/config.yaml"
