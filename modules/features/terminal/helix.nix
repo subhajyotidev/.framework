@@ -1,4 +1,9 @@
-{ lib, inputs, pkgs, ... }:
+{
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   nixpkgs.overlays = [
@@ -7,7 +12,7 @@
 
   programs.helix = {
     enable = true;
-
+    defaultEditor = true;
     settings = {
       theme = "dankcolors";
 
@@ -118,34 +123,24 @@
           args = [ "serve" ];
         };
 
-        completion.command =
-          lib.getExe pkgs.simple-completion-language-server;
+        completion.command = lib.getExe pkgs.simple-completion-language-server;
 
         nix.command = lib.getExe pkgs.nixd;
 
         html = {
-          command =
-            lib.getExe'
-              pkgs.vscode-langservers-extracted
-              "vscode-html-language-server";
+          command = lib.getExe' pkgs.vscode-langservers-extracted "vscode-html-language-server";
 
           args = [ "--stdio" ];
         };
 
         css = {
-          command =
-            lib.getExe'
-              pkgs.vscode-langservers-extracted
-              "vscode-css-language-server";
+          command = lib.getExe' pkgs.vscode-langservers-extracted "vscode-css-language-server";
 
           args = [ "--stdio" ];
         };
 
         json = {
-          command =
-            lib.getExe'
-              pkgs.vscode-langservers-extracted
-              "vscode-json-language-server";
+          command = lib.getExe' pkgs.vscode-langservers-extracted "vscode-json-language-server";
 
           args = [ "--stdio" ];
         };
@@ -155,11 +150,9 @@
           args = [ "--stdio" ];
         };
 
-        markdown.command =
-          lib.getExe pkgs.markdown-oxide;
+        markdown.command = lib.getExe pkgs.markdown-oxide;
 
-        fish.command =
-          lib.getExe pkgs.fish-lsp;
+        fish.command = lib.getExe pkgs.fish-lsp;
 
         toml = {
           command = lib.getExe pkgs.taplo;
@@ -170,8 +163,7 @@
           ];
         };
 
-        typst.command =
-          lib.getExe pkgs.tinymist;
+        typst.command = lib.getExe pkgs.tinymist;
       };
 
       language =
@@ -192,8 +184,7 @@
             {
               name = "nix";
 
-              formatter.command =
-                lib.getExe pkgs.nixfmt;
+              formatter.command = lib.getExe pkgs.nixfmt;
 
               language-servers = [
                 "spellcheck"
@@ -412,8 +403,7 @@
             {
               name = "typst";
 
-              formatter.command =
-                lib.getExe pkgs.typstyle;
+              formatter.command = lib.getExe pkgs.typstyle;
 
               language-servers = [
                 "spellcheck"
@@ -448,6 +438,5 @@
     };
   };
 
-  xdg.configFile."helix/snippets".source =
-    ./helix/snippets;
+  xdg.configFile."helix/snippets".source = ./helix/snippets;
 }

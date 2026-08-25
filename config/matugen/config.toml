@@ -5,6 +5,10 @@ input_path = "~/.config/matugen/templates/syntect/dankcolors.tmTheme"
 output_path = "~/.config/bat/themes/dankcolors.tmTheme"
 post_hook = "bat cache --build"
 
+[templates.vesktop]
+input_path = "~/.config/matugen/templates/vesktop/dankcolors.css"
+output_path = "~/.config/vesktop/themes/dankcolors.css"
+
 [templates.emacs]
 input_path = "~/.config/matugen/templates/emacs/dankcolors-theme.el"
 output_path = "~/.cache/emacs/themes/dankcolors-theme.el"
@@ -36,10 +40,6 @@ output_path = "~/.config/obs-studio/themes/dankcolors.obt"
 [templates.papirus-folders]
 input_path = "~/.config/matugen/templates/matugen/placeholder"
 output_path = "~/.cache/matugen/placeholder"
-
-[templates.fish]
-input_path = "~/.config/matugen/templates/fish/dankcolors.fish"
-output_path = "~/.config/fish/conf.d/dankcolors.fish"
 
 colors_to_compare = [
   { name = "adwaita", color = "#93C0EA" },

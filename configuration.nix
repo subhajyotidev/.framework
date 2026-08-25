@@ -87,6 +87,9 @@
   # Fish
   programs.fish.enable = true;
 
+  # KDE Connect
+  programs.kdeconnect.enable = true;
+
   # Fail2ban, nh..
   services.fail2ban.enable = true;
 

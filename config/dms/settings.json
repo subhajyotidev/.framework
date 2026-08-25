@@ -645,13 +645,13 @@
           "enabled": true,
           "focusedWindowSize": 0,
           "focusedWindowCompactMode": true
-        },
-        {
-          "id": "clock",
-          "enabled": true
         }
       ],
       "centerWidgets": [
+        {
+          "id": "clock",
+          "enabled": true
+        },
         {
           "id": "music",
           "enabled": true,
@@ -660,20 +660,16 @@
       ],
       "rightWidgets": [
         {
-          "id": "dockerManager",
-          "enabled": true
-        },
-        {
           "id": "systemTray",
           "enabled": true,
           "trayUseInlineExpansion": false
         },
         {
-          "id": "clipboardPlus",
+          "id": "dankKDEConnect",
           "enabled": true
         },
         {
-          "id": "dankKDEConnect",
+          "id": "clipboardPlus",
           "enabled": true
         },
         {
@@ -684,13 +680,6 @@
           "id": "cpuUsage",
           "enabled": true,
           "minimumWidth": true
-        },
-        {
-          "id": "memUsage",
-          "enabled": true,
-          "minimumWidth": true,
-          "showSwap": true,
-          "showInGb": true
         },
         {
           "id": "controlCenterButton",
@@ -708,10 +697,14 @@
           "showPrinterIcon": true,
           "showIdleInhibitorIcon": true,
           "showDoNotDisturbIcon": false
+        },
+        {
+          "id": "batteryPlus",
+          "enabled": true
         }
       ],
       "spacing": 0,
-      "innerPadding": 7,
+      "innerPadding": 10,
       "bottomGap": 0,
       "transparency": 0,
       "widgetTransparency": 1,

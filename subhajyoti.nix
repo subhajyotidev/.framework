@@ -11,6 +11,7 @@
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
+
     ./modules/features/terminal/helix.nix
     ./modules/features/terminal/fish.nix
     ./modules/features/browsers.nix
@@ -235,6 +236,8 @@
     pinentry.package = inputs.pinentry-dms.packages.${pkgs.system}.default;
   };
 
+  programs.vesktop.enable = true;
+
   programs.kitty = {
     enable = true;
 
@@ -363,18 +366,25 @@
 
     gtk4.theme = config.gtk.theme;
   };
+
   home.packages = with pkgs; [
     qt6Packages.qt6ct
     libsForQt5.qt5ct
+
     lora
     poppins
     maple-mono.NF
     adw-gtk3
     papirus-icon-theme
     papirus-folders
+    pear-desktop
+    bitwarden-desktop
     blender
     sioyek
     wlr-which-key
+    libreoffice
+    davinci-resolve
+    kdePackages.dolphin
 
     # Fish Stuff
     fish
