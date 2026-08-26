@@ -1,5 +1,6 @@
 set smoothscroll false
-set theme dankcolors
+colours dankcolors
+set newtab about:newtab
 
 bind J tabnext
 bind K tabprev
