@@ -1,4 +1,5 @@
 set smoothscroll false
+set modeindicator false
 colours dankcolors
 set newtab about:newtab
 

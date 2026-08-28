@@ -637,7 +637,12 @@
       "showOnLastDisplay": true,
       "leftWidgets": [
         {
-          "id": "workspaceSwitcher",
+          "id": "music",
+          "enabled": true,
+          "mediaSize": 1
+        },
+        {
+          "id": "clock",
           "enabled": true
         },
         {
@@ -649,13 +654,8 @@
       ],
       "centerWidgets": [
         {
-          "id": "clock",
+          "id": "workspaceSwitcher",
           "enabled": true
-        },
-        {
-          "id": "music",
-          "enabled": true,
-          "mediaSize": 1
         }
       ],
       "rightWidgets": [
