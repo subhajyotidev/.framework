@@ -59,7 +59,7 @@
 
     niri = {
       enableKeybinds = false;
-      enableSpawn = true;
+      enableSpawn = false;
     };
 
     plugins = {
@@ -208,6 +208,10 @@
   programs.niri = {
     package = pkgs.niri-unstable;
     config = builtins.readFile ./config/niri/config.kdl;
+
+    settings = {
+      layout.border.enable = false;
+    };
   };
 
   programs.git = {

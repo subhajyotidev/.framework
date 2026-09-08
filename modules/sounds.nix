@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 let
-  greetingTheme = pkgs.writeShellScriptBin "set-greeting-sound-theme" ''
+  schemaDir = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-${pkgs.gsettings-desktop-schemas.version}/glib-2.0/schemas";
+
+  dmsStartup = pkgs.writeShellScriptBin "dms-startup" ''
+    export GSETTINGS_SCHEMA_DIR="${schemaDir}"
+
     hour=$(date +%H)
 
     if [ "$hour" -ge 6 ] && [ "$hour" -lt 12 ]; then
@@ -12,14 +16,16 @@ let
       theme="evening"
     fi
 
-    export GSETTINGS_SCHEMA_DIR="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-50.1/glib-2.0/schemas"
-
     ${pkgs.glib}/bin/gsettings set org.gnome.desktop.sound theme-name "$theme"
+
+    exec dms run
   '';
 in
 {
   home.packages = [
-    greetingTheme
     pkgs.gsettings-desktop-schemas
+    dmsStartup
   ];
+
+  home.sessionVariables.GSETTINGS_SCHEMA_DIR = schemaDir;
 }

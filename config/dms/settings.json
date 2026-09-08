@@ -827,7 +827,89 @@
       "enabled": true
     }
   },
-  "desktopWidgetInstances": [],
+  "desktopWidgetInstances": [
+    {
+      "id": "dw_1788769882773_bhysgjflw",
+      "widgetType": "desktopClock",
+      "name": "Desktop Clock",
+      "enabled": false,
+      "config": {
+        "style": "digital",
+        "transparency": 0.6,
+        "colorMode": "primary",
+        "customColor": "#ffffff",
+        "showDate": false,
+        "showAnalogNumbers": false,
+        "showAnalogSeconds": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "showDigitalSeconds": true
+      },
+      "positions": {
+        "eDP-1": {
+          "width": 200,
+          "height": 45,
+          "x": 680,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": "dw_1788770013502_inucog9ez",
+      "widgetType": "mediaPlayer",
+      "name": "Media Player",
+      "enabled": false,
+      "config": {
+        "displayPreferences": [
+          "all"
+        ],
+        "backgroundOpacity": 50,
+        "borderOpacity": 0,
+        "rotateThumbnail": true
+      },
+      "positions": {
+        "eDP-1": {
+          "width": 600,
+          "height": 160,
+          "x": 160,
+          "y": 80
+        }
+      }
+    },
+    {
+      "id": "dw_1788770015741_q2zk7cg9g",
+      "widgetType": "pureLyrics",
+      "name": "Pure Lyrics",
+      "enabled": true,
+      "config": {
+        "displayPreferences": [],
+        "showOnOverlay": false,
+        "showOnOverview": false,
+        "syncPositionAcrossScreens": true,
+        "borderOpacity": 0,
+        "lineCount": "3",
+        "fontSize": 22,
+        "preferredPlayer": "firefox",
+        "scrollOffset": 513,
+        "musixmatchToken": "00000000000000000000000000000000000000000000000000000000"
+      },
+      "positions": {
+        "eDP-1": {
+          "width": 520,
+          "height": 320,
+          "x": 0,
+          "y": 0
+        },
+        "_synced": {
+          "x": 0,
+          "y": 0.32407407407407407,
+          "width": 1160,
+          "height": 320
+        }
+      }
+    }
+  ],
   "desktopWidgetGroups": [],
   "builtInPluginSettings": {
     "dms_settings_search": {

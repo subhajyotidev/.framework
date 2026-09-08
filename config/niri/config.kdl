@@ -73,7 +73,7 @@ hotkey-overlay {
     hide-not-bound;
 }
 
-spawn-at-startup "dms" "run";
+spawn-at-startup "dms-startup";
 // spawn-at-startup "dcal" "daemon";
 
 binds {

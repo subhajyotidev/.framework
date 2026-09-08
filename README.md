@@ -2,7 +2,7 @@
 
 <div align="center">
 
-### My Linux environment, defined in Nix.
+### My Linux setup, built the Nix way.
 
 **NixOS · Niri · DankMaterialShell · Wayland**
 
@@ -10,31 +10,34 @@
 
 ---
 
-> A personal NixOS configuration built around reproducibility, minimalism, and
-> making Linux feel like home.
+> Just my personal Linux setup — configs, tweaks, and everything else I've
+> messed with along the way.
 
 ---
 
-## 
+## About
 
-This is my personal Linux environment.
+This is the setup I use on my machine.
 
-Everything here exists for a reason — from the desktop and terminal to the
-applications, themes, plugins, and small quality-of-life tweaks that make the
-system feel like mine.
+It's mostly a collection of things I've tried, changed, broken, fixed, and
+eventually decided to keep.
 
-The goal isn't to build the most minimal configuration.
+My desktop, terminal, apps, themes, keybinds, and all the little tweaks live
+here. I like having everything in one place so I can rebuild the system without
+having to remember what I did six months ago.
 
-It's to build an environment that I actually enjoy using.
+It's not meant to be the most minimal or the most perfect NixOS config.
+
+It's just **my setup**.
 
 ---
 
-## Philosophy
+````md
+## The idea
 
 ```text
-Declarative over manual
-Reproducible over fragile
-Modular over monolithic
-Simple over bloated
-Personal over generic
+If I use it often, I'll probably configure it.
+If I break something, I'll probably learn from it.
+If it looks good and works well, it's staying.
 ```
+````
