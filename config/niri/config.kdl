@@ -175,6 +175,9 @@ blur {
 
 window-rule {
     opacity 0.85;
+     geometry-corner-radius 16;
+     clip-to-geometry true;
+
 
     background-effect {
         blur true;

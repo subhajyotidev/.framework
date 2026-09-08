@@ -11,7 +11,6 @@
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
-
     ./modules/features/terminal/helix.nix
     ./modules/features/terminal/fish.nix
     ./modules/features/browsers.nix
@@ -23,6 +22,7 @@
     ./modules/features/editors/emacs.nix
     ./modules/features/editors/zed-editor.nix
     ./modules/packages/daw.nix
+    ./modules/sounds.nix
   ];
 
   home.username = "delllaptop";
@@ -332,6 +332,15 @@
     "REAPER/UserPlugins/reaper_sws-x86_64.so".source =
       "${pkgs.reaper-sws-extension}/UserPlugins/reaper_sws-x86_64.so";
   };
+
+  home.file.".local/share/sounds/morning/stereo/desktop-login.wav".source =
+    ./config/sounds/morning/stereo/desktop-login.wav;
+
+  home.file.".local/share/sounds/afternoon/stereo/desktop-login.wav".source =
+    ./config/sounds/afternoon/stereo/desktop-login.wav;
+
+  home.file.".local/share/sounds/evening/stereo/desktop-login.wav".source =
+    ./config/sounds/evening/stereo/desktop-login.wav;
 
   qt = {
     enable = true;
