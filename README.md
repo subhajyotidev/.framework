@@ -17,7 +17,7 @@
 
 ## About
 
-This is the setup I use on my machine.
+This is the setup I use currently.
 
 It's mostly a collection of things I've tried, changed, broken, fixed, and
 eventually decided to keep.
@@ -37,7 +37,7 @@ It's just **my setup**.
 
 ```text
 If I use it often, I'll probably configure it.
-If I break something, I'll probably learn from it.
+If I break something, I'll probably rebuild it.
 If it looks good and works well, it's staying.
 ```
 ````

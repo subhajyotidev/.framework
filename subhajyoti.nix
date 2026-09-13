@@ -55,8 +55,6 @@
     enable = true;
     enableSystemMonitoring = true;
 
-    dgop.package = inputs.dgop.packages.${pkgs.system}.default;
-
     niri = {
       enableKeybinds = false;
       enableSpawn = false;
@@ -396,8 +394,12 @@
     sioyek
     wlr-which-key
     libreoffice
-    davinci-resolve
     kdePackages.dolphin
+    gcc
+    vlc
+    #davinci-resolve-studio
+    proton-vpn
+    loupe
 
     # Fish Stuff
     fish

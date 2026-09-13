@@ -159,7 +159,9 @@ binds {
     Mod+Ctrl+L repeat=false hotkey-overlay-title="Toggle Lock Screen"             { spawn "dms" "ipc" "lock" "lock";                        }
     Mod+Shift+M repeat=false hotkey-overlay-title="Toggle Light/Dark Theme"       { spawn "dms" "ipc" "call" "theme" "toggle";              }
     Mod+Shift+N repeat=false hotkey-overlay-title="Toggle Night Mode"             { spawn "dms" "ipc" "night" "toggle";                     }
-
+    Mod+Alt+M repeat=false hotkey-overlay-title="Show Media"                      { spawn "dms" "ipc" "call" "island" "show" "media";                     }
+    Mod+Alt+H repeat=false hotkey-overlay-title="Show Home"                       { spawn "dms" "ipc" "call" "island" "show" "home";                     }
+    Mod+Alt+C repeat=false hotkey-overlay-title="Toggle Control Center"           { spawn "dms" "ipc" "call" "control-center" "toggle";                     }
     XF86AudioLowerVolume allow-when-locked=true repeat=false  { spawn "dms" "ipc" "audio" "decrement" "5";         }
     XF86AudioMicMute allow-when-locked=true repeat=false      { spawn "dms" "ipc" "audio" "micmute";               }
     XF86AudioMute allow-when-locked=true repeat=false         { spawn "dms" "ipc" "audio" "mute";                  }
