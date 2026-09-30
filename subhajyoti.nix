@@ -397,9 +397,10 @@
     kdePackages.dolphin
     gcc
     vlc
-    #davinci-resolve-studio
+    davinci-resolve
     proton-vpn
     loupe
+    spotify
 
     # Fish Stuff
     fish

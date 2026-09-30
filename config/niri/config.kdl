@@ -162,6 +162,7 @@ binds {
     Mod+Alt+M repeat=false hotkey-overlay-title="Show Media"                      { spawn "dms" "ipc" "call" "island" "show" "media";                     }
     Mod+Alt+H repeat=false hotkey-overlay-title="Show Home"                       { spawn "dms" "ipc" "call" "island" "show" "home";                     }
     Mod+Alt+C repeat=false hotkey-overlay-title="Toggle Control Center"           { spawn "dms" "ipc" "call" "control-center" "toggle";                     }
+    Mod+Alt+S repeat=false hotkey-overlay-title="Open Island Search"              {  spawn "dms" "ipc" "call" "island" "open" "launcher";                    }
     XF86AudioLowerVolume allow-when-locked=true repeat=false  { spawn "dms" "ipc" "audio" "decrement" "5";         }
     XF86AudioMicMute allow-when-locked=true repeat=false      { spawn "dms" "ipc" "audio" "micmute";               }
     XF86AudioMute allow-when-locked=true repeat=false         { spawn "dms" "ipc" "audio" "mute";                  }

@@ -350,7 +350,10 @@
       "islandSpringMass": 0.85,
       "batteryColorMode": "level",
       "islandFloating": false,
-      "islandHomeCompactTight": false
+      "islandHomeCompactTight": false,
+      "islandOuterGap": 4,
+      "islandHoverCloseDelay": 50,
+      "islandHoverOpenDelay": 100
     }
   ],
   "desktopClockCustomColor": {
