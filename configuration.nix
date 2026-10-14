@@ -26,6 +26,7 @@
     inputs.piri.nixosModules.piri
   ];
 
+  nix.package = pkgs.nixVersions.nix_2_35;
   nixpkgs.overlays = [
     inputs.nix-cachyos-kernel.overlays.pinned
   ];
