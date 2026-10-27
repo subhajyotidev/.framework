@@ -189,7 +189,7 @@
   "fontFamily": "Poppins SemiBold",
   "monoFontFamily": "Maple Mono NF SemiBold",
   "textRenderType": 1,
-  "lockScreenWallpaperPath": "/home/delllaptop/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg",
+  "lockScreenWallpaperPath": "/home/delllaptop/Pictures/Wallpapers/Iced Air India Jet Above Storm Clouds.png",
   "powerActionHoldDuration": 0.25,
   "powerMenuActions": [
     "lock",
@@ -409,7 +409,9 @@
       "enabled": true,
       "w": 4,
       "h": 1,
-      "footer": true
+      "small": true,
+      "col": 0,
+      "row": 8
     },
     {
       "id": "edit",
@@ -417,8 +419,8 @@
       "w": 1,
       "h": 1,
       "small": true,
-      "footer": true,
-      "footerEnd": true
+      "col": 7,
+      "row": 8
     }
   ],
   "clockDateFormat": "ddd, MMM d",
@@ -568,7 +570,7 @@
   "matugenTemplateVscode": false,
   "matugenTemplateEmacs": false,
   "notificationPopupPrivacyMode": true,
-  "lockScreenPowerOffMonitorsOnLock": true,
+  "lockScreenPowerOffMonitorsOnLock": false,
   "lockScreenVideoEnabled": false,
   "notificationShowTimeoutBar": true,
   "notificationPopupPosition": 3,
@@ -824,5 +826,5 @@
   "frameLauncherEmergeSide": "top",
   "frameLauncherArcExtender": true,
   "barInsetPaddingSyncAll": true,
-  "configVersion": 40
+  "configVersion": 42
 }
