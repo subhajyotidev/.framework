@@ -54,7 +54,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.graceful = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
   boot.kernelModules = [ "ntsync" ];
   boot.tmp.cleanOnBoot = true;
