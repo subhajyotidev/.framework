@@ -687,7 +687,7 @@
       "autoHideStrict": false,
       "island": true,
       "islandPalette": "dim",
-      "islandBatteryStyle": "ring",
+      "islandBatteryStyle": "duo",
       "islandMediaClockVisible": false,
       "islandHomeLayout": [
         {
@@ -708,7 +708,7 @@
         },
         {
           "id": "status",
-          "enabled": true
+          "enabled": false
         },
         {
           "id": "volume",
@@ -716,6 +716,18 @@
         },
         {
           "id": "brightness",
+          "enabled": false
+        },
+        {
+          "id": "workspaces",
+          "enabled": false
+        },
+        {
+          "id": "privacy",
+          "enabled": true
+        },
+        {
+          "id": "tray",
           "enabled": false
         }
       ],
@@ -743,7 +755,9 @@
       "widgetStyle": "segments",
       "islandRouteNotificationCenter": "island",
       "islandRouteControlCenter": "island",
-      "islandRouteLauncher": "island"
+      "islandRouteLauncher": "island",
+      "islandNotch": false,
+      "islandHomeStatusContent": "battery"
     }
   ],
   "desktopWidgetInstances": [
