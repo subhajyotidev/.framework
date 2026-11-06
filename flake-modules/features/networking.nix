@@ -1,0 +1,110 @@
+{
+  flake.modules.nixos.options-networking' =
+    {
+      lib,
+      config,
+      pkgs,
+      ...
+    }:
+    {
+      options = {
+        networking'.enable = lib.mkEnableOption "enable networking";
+
+        networking'.name = lib.mkOption {
+          type = lib.types.str;
+          default = "nixos";
+          description = "the networking hostName";
+        };
+
+        networking'.allowedPortRanges = lib.mkOption {
+          type = lib.types.listOf (lib.types.attrsOf lib.types.int);
+          default = [ ];
+          description = "open specific ports for both TCP and UDP";
+        };
+
+        networking'.manager.enable = lib.mkEnableOption "enable networkmanager";
+
+        networking'.openssh.enable = lib.mkEnableOption "enable openssh";
+
+        networking'.openssh.ports = lib.mkOption {
+          type = lib.types.listOf lib.types.port;
+          default = [ 22 ];
+          description = "ports to run on";
+        };
+
+        networking'.openssh.settings = lib.mkOption {
+          type = lib.types.attrs;
+          default = { };
+          description = "extra settings for services.openssh.settings";
+        };
+
+        networking'.openssh.endlessh.port = lib.mkOption {
+          type = lib.types.port;
+          default = 2222;
+          description = "port endlessh will listen on";
+        };
+
+        networking'.openvpn.enable = lib.mkEnableOption "enable openvpn";
+
+        networking'.wireshark.enable = lib.mkEnableOption "enable wireshark";
+      };
+
+      config = lib.mkIf config.networking'.enable (
+        lib.mkMerge [
+          {
+            networking = {
+              hostName = config.networking'.name;
+
+              firewall = {
+                allowedTCPPortRanges = config.networking'.allowedPortRanges;
+
+                allowedUDPPortRanges = config.networking'.allowedPortRanges;
+              };
+            };
+          }
+
+          (lib.mkIf config.networking'.manager.enable {
+            networking.networkmanager.enable = true;
+            programs.nm-applet.enable = true;
+          })
+
+          (lib.mkIf config.networking'.openssh.enable {
+            services = {
+              openssh = {
+                enable = true;
+                ports = config.networking'.openssh.ports;
+                openFirewall = true;
+
+                settings = lib.mkMerge [
+                  {
+                    PasswordAuthentication = lib.mkDefault false;
+                    KbdInteractiveAuthentication = lib.mkDefault false;
+                    PermitRootLogin = lib.mkDefault "no";
+                  }
+
+                  config.networking'.openssh.settings
+                ];
+              };
+
+              endlessh = {
+                enable = true;
+                port = config.networking'.openssh.endlessh.port;
+                openFirewall = true;
+              };
+            };
+          })
+
+          (lib.mkIf config.networking'.openvpn.enable {
+            programs.openvpn3.enable = true;
+          })
+
+          (lib.mkIf config.networking'.wireshark.enable {
+            programs.wireshark = {
+              enable = true;
+              package = pkgs.wireshark;
+            };
+          })
+        ]
+      );
+    };
+}

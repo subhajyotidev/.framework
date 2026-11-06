@@ -1,3 +1,0 @@
-== A beautiful journey starts...
-
-...here!

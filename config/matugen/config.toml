@@ -74,10 +74,6 @@ post_hook = "papirus-folders -C {{closest_color}} --theme Papirus"
 input_path = "~/.config/matugen/templates/tridactyl/dankcolors.css"
 output_path = "~/.config/tridactyl/themes/dankcolors.css"
 
-[templates.vesktop]
-input_path = "~/.config/matugen/templates/vesktop/dankcolors.css"
-output_path = "~/.config/vesktop/themes/dankcolors.css"
-
 [templates.wlr-which-key]
 input_path = "~/.config/matugen/templates/wlr-which-key/config.yaml"
 output_path = "~/.config/wlr-which-key/config.yaml"

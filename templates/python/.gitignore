@@ -1,7 +1,0 @@
-.direnv
-.venv
-.ruff_cache
-.basedpyright
-.pytest_cache
-__pycache__
-result

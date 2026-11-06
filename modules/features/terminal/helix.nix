@@ -1,15 +1,10 @@
 {
   lib,
-  inputs,
   pkgs,
   ...
 }:
 
 {
-  nixpkgs.overlays = [
-    inputs.helix.overlays.default
-  ];
-
   programs.helix = {
     enable = true;
     defaultEditor = true;

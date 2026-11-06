@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,11 +65,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mfctl = {
-      url = "sourcehut:~debarchito/mfctl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     flake-parts.url = "github:hercules-ci/flake-parts/f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb";
     import-tree.url = "github:vic/import-tree";
 
@@ -75,54 +72,13 @@
   };
 
   outputs =
-    { self, ... }@inputs:
-    let
-      system = "x86_64-linux";
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.flake-parts.flakeModules.modules
+        (inputs.import-tree ./flake-modules)
+      ];
 
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-
-        config.allowUnfree = true;
-
-        overlays = [
-          inputs.niri.overlays.niri
-          inputs.nur.overlays.default
-        ];
-      };
-    in
-    {
-      nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        specialArgs = {
-          inherit inputs;
-        };
-
-        modules = [
-          ./configuration.nix
-
-          inputs.niri.nixosModules.niri
-
-          {
-            programs.niri = {
-              enable = true;
-              package = pkgs.niri-unstable;
-            };
-          }
-        ];
-      };
-
-      homeConfigurations.delllaptop = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        extraSpecialArgs = {
-          inherit system inputs;
-        };
-
-        modules = [
-          inputs.niri.homeModules.niri
-          ./subhajyoti.nix
-        ];
-      };
+      systems = [ "x86_64-linux" ];
     };
 }
