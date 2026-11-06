@@ -15,7 +15,7 @@
           ;
       };
 
-      initLua = ../../../modules/features/terminal/yazi/init.lua;
+      initLua = ../../../config/yazi/init.lua;
 
       settings = {
         mgr.ratio = [
@@ -152,6 +152,6 @@
     };
 
     xdg.configFile."yazi/plugins/no-header.yazi".source =
-      ../../../modules/features/terminal/yazi/plugins/no-header.yazi;
+      ../../../config/yazi/plugins/no-header.yazi;
   };
 }

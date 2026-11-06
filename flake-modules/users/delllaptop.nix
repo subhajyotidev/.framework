@@ -8,8 +8,6 @@
 {
   # Register the existing Home Manager configuration
   # as a reusable Home Manager module.
-  flake.modules.homeManager."users-delllaptop" = ../../subhajyoti.nix;
-
   # Restore the standalone Home Manager configuration.
   flake.homeConfigurations.delllaptop = withSystem "x86_64-linux" (
     { system, ... }:
@@ -24,10 +22,8 @@
           inputs.niri.overlays.niri
           inputs.helix.overlays.default
           inputs.nur.overlays.default
-          (import ../../overlays/daw.nix)
-          (import ../../overlays/custom.nix {
-            inherit inputs;
-          })
+          self.overlays.daw
+          self.overlays.custom
         ];
       };
     in
@@ -39,6 +35,13 @@
       };
 
       modules = [
+        {
+          home.username = "delllaptop";
+          home.homeDirectory = "/home/delllaptop";
+          home.stateVersion = "26.05";
+
+          programs.home-manager.enable = true;
+        }
         self.modules.homeManager.options-desktop
         self.modules.homeManager.options-daw
         self.modules.homeManager.options-terminal
@@ -50,7 +53,6 @@
         self.modules.homeManager.editors
         self.modules.homeManager.options-applications
         self.modules.homeManager.options-command-line
-        self.modules.homeManager."users-delllaptop"
 
         {
           desktop.niri.enable = true;

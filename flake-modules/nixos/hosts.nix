@@ -129,6 +129,13 @@
             endlessh.port = 22;
           };
 
+          allowedPortRanges = [
+            {
+              from = 1714;
+              to = 1764;
+            }
+          ];
+
           openvpn.enable = true;
           wireshark.enable = true;
         };

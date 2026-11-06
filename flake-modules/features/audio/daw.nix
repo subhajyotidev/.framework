@@ -1,10 +1,10 @@
-{ lib, ... }:
+{ self, lib, ... }:
 
 {
   # Shared DAW package overlay for NixOS.
   flake.modules.nixos.daw-overlay = {
     nixpkgs.overlays = [
-      (import ../../overlays/daw.nix)
+      self.overlays.daw
     ];
   };
 

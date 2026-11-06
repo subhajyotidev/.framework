@@ -4,6 +4,6 @@
       enable = true;
     };
 
-    xdg.configFile."zellij/config.kdl".source = ../../../modules/features/terminal/zellij/config.kdl;
+    xdg.configFile."zellij/config.kdl".source = ../../../config/zellij/config.kdl;
   };
 }

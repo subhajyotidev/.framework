@@ -67,6 +67,10 @@
             package = pkgs.waydroid-nftables;
           };
 
+          networking.firewall.trustedInterfaces = [
+            "waydroid0"
+          ];
+
           environment.systemPackages = builtins.attrValues {
             inherit (pkgs)
               waydroid-script

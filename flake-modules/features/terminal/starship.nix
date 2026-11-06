@@ -117,6 +117,6 @@
     ];
 
     xdg.configFile."starship-jj/starship-jj.toml".source =
-      ../../../modules/features/terminal/starship/plugins/starship-jj/starship-jj.toml;
+      ../../../config/starship-jj/starship-jj.toml;
   };
 }

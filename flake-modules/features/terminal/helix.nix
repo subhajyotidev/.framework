@@ -379,6 +379,6 @@
       };
     };
 
-    xdg.configFile."helix/snippets".source = ../../../modules/features/terminal/helix/snippets;
+    xdg.configFile."helix/snippets".source = ../../../config/helix/snippets;
   };
 }

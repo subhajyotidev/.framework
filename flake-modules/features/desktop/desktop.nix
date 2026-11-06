@@ -1,7 +1,12 @@
 {
   # NixOS desktop options
   flake.modules.nixos.options-desktop =
-    { lib, config, ... }:
+    {
+      lib,
+      config,
+      pkgs,
+      ...
+    }:
     {
       options.desktop = lib.mkOption {
         type = lib.types.submodule {
@@ -15,13 +20,29 @@
         default = { };
       };
 
-      config = lib.mkIf config.desktop.labwc.enable {
-        programs.labwc.enable = true;
-      };
+      config = {
+        xdg.portal = {
+          enable = true;
 
-      imports = [
-        ../../modules/features/desktop-portals.nix
-      ];
+          extraPortals = with pkgs; [
+            xdg-desktop-portal-gtk
+            xdg-desktop-portal-gnome
+          ];
+
+          config.niri = {
+            default = [
+              "gnome"
+              "gtk"
+            ];
+
+            "org.freedesktop.impl.portal.FileChooser" = [
+              "gtk"
+            ];
+          };
+        };
+
+        programs.labwc.enable = lib.mkIf config.desktop.labwc.enable true;
+      };
     };
 
   # Home Manager desktop options
