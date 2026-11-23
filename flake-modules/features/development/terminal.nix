@@ -11,6 +11,7 @@
       self.modules.homeManager.starship
       self.modules.homeManager.yazi
       self.modules.homeManager.zellij
+      self.modules.homeManager.dsearch
     ];
 
     # Kitty

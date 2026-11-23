@@ -15,7 +15,7 @@
         home.packages = with pkgs; [
           pear-desktop
           bitwarden-desktop
-          blender
+          #blender
           sioyek
           wlr-which-key
           libreoffice
