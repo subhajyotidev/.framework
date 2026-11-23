@@ -43,6 +43,7 @@
           programs.home-manager.enable = true;
         }
         self.modules.homeManager.options-desktop
+        self.modules.homeManager.options-cursor
         self.modules.homeManager.options-daw
         self.modules.homeManager.options-terminal
         self.modules.homeManager.options-development
@@ -57,6 +58,7 @@
         {
           desktop.niri.enable = true;
           desktop.niri.dms.enable = true;
+          desktop.cursor.enable = true;
           daw.enable = true;
           desktop.appearance.enable = true;
           homePackaging.flatpak.enable = true;

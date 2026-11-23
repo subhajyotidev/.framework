@@ -17,13 +17,17 @@
     {
       imports = [
         inputs.dms.homeModules.dank-material-shell
-        inputs.dms.homeModules.niri
+        #        inputs.dms.homeModules.niri
       ];
 
       config = lib.mkIf (config.desktop.niri.enable && config.desktop.niri.dms.enable) {
         programs.dank-material-shell = {
           enable = true;
           enableSystemMonitoring = true;
+          systemd = {
+            enable = true;
+            restartIfChanged = true;
+          };
 
           # Build DMS and its Qt dependencies using nixpkgs-unstable
           package = inputs.dms.lib.mkDmsShell pkgsUnstable;
@@ -33,10 +37,10 @@
 
           settings = builtins.fromJSON (builtins.readFile ../../../config/dms/settings.json);
 
-          niri = {
-            enableKeybinds = false;
-            enableSpawn = true;
-          };
+          #          niri = {
+          #           enableKeybinds = false;
+          #          enableSpawn = false;
+          #       };
 
           plugins = {
             batteryPlus = {
@@ -175,7 +179,10 @@
         xdg.configFile = {
           "DankMaterialShell/settings.json".source = ../../../config/dms/settings.json;
 
-          "matugen".source = ../../../config/matugen;
+          "matugen" = {
+            source = ../../../config/matugen;
+            recursive = true;
+          };
 
           "qt5ct/qt5ct.conf".source = ../../../config/qt5ct/qt5ct.conf;
 
@@ -183,11 +190,6 @@
 
           "niri/piri.toml".source = ../../../config/piri/piri.toml;
 
-          "matugen/templates/kitty/dankcolors.conf".source =
-            ../../../config/matugen/templates/kitty/dankcolors.conf;
-
-          "matugen/templates/fish/dankcolors.fish".source =
-            ../../../config/matugen/templates/fish/dankcolors.fish;
         };
       };
     }

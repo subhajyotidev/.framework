@@ -32,11 +32,11 @@
       config = lib.mkIf config.desktop.niri.enable {
         programs.niri = {
           package = pkgs.niri-unstable;
-
-          settings.layout.border.enable = false;
-
-          config = builtins.readFile ../../../config/niri/config.kdl;
+          config = null;
         };
+
+        xdg.configFile."niri/config.kdl".source = ../../../config/niri/config.kdl;
+        xdg.configFile.niri-config.enable = lib.mkForce false;
       };
     };
 }

@@ -9,18 +9,18 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "style": "overlap",
+        "style": "expressive",
         "transparency": 0,
-        "weight": 100,
+        "weight": 300,
         "twoTone": true,
         "showDate": false,
-        "showDigitalSeconds": false,
+        "showDigitalSeconds": true,
         "showAnalogNumbers": true,
         "showAnalogSeconds": true,
         "autoPosition": false,
         "colorMode": "default",
         "customColor": "#ffffff",
-        "fontFamily": "Poppins Thin"
+        "fontFamily": "Poppins Latin"
       },
       "name": "Clock"
     },
@@ -33,7 +33,7 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "format": "long",
+        "format": "short",
         "colorMode": "default",
         "customColor": "#ffffff"
       }
@@ -47,10 +47,11 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "style": "expressive",
+        "style": "ring",
         "profileVisibility": "typing",
         "passwordVisibility": "typing"
-      }
+      },
+      "name": "Key"
     },
     {
       "id": "lock_notifications",
@@ -61,7 +62,7 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "mode": 1
+        "mode": 2
       }
     },
     {
@@ -90,18 +91,18 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "style": "overlap",
+        "style": "expressive",
         "transparency": 0,
-        "weight": 100,
+        "weight": 300,
         "twoTone": true,
         "showDate": false,
-        "showDigitalSeconds": false,
+        "showDigitalSeconds": true,
         "showAnalogNumbers": true,
         "showAnalogSeconds": true,
         "autoPosition": false,
         "colorMode": "default",
         "customColor": "#ffffff",
-        "fontFamily": "Poppins Thin"
+        "fontFamily": "Poppins Latin"
       },
       "name": "Clock"
     },
@@ -114,7 +115,7 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "format": "long",
+        "format": "short",
         "colorMode": "default",
         "customColor": "#ffffff"
       }
@@ -128,10 +129,11 @@
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "style": "expressive",
+        "style": "ring",
         "profileVisibility": "typing",
         "passwordVisibility": "typing"
-      }
+      },
+      "name": "Key"
     },
     {
       "id": "lock_status",
@@ -177,7 +179,8 @@
   "displayFontFamily": "Poppins",
   "textRenderType": 0,
   "lockScreenShowWeather": false,
-  "lockScreenFontFamily": "Poppins",
+  "lockScreenWallpaperPath": "/home/delllaptop/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg",
+  "lockScreenFontFamily": "Poppins ExtraBold",
   "powerActionHoldDuration": 0.25,
   "powerMenuActions": [
     "lock",

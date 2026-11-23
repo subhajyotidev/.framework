@@ -73,9 +73,6 @@ hotkey-overlay {
     hide-not-bound;
 }
 
-spawn-at-startup "dms-startup";
-// spawn-at-startup "dcal" "daemon";
-
 binds {
     Mod+H repeat=false hotkey-overlay-title="Focus Column Left"     { focus-column-left;    }
     Mod+J repeat=false hotkey-overlay-title="Focus Window Down"     { focus-window-down;    }

@@ -59,6 +59,8 @@
             labwc.dms.enable = lib.mkEnableOption "enable DankMaterialShell for Labwc";
 
             appearance.enable = lib.mkEnableOption "enable desktop appearance configuration";
+
+            cursor.enable = lib.mkEnableOption "enable dynamic cursor theming";
           };
         };
 
