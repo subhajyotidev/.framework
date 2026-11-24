@@ -43,6 +43,7 @@
           programs.home-manager.enable = true;
         }
         self.modules.homeManager.options-desktop
+        self.modules.homeManager.dux-files
         self.modules.homeManager.options-cursor
         self.modules.homeManager.options-daw
         self.modules.homeManager.options-terminal

@@ -10,14 +10,9 @@
     { system, ... }:
 
     { config, pkgs, ... }:
-    let
-      pkgsUnstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-    in
-
     {
       imports = [
         inputs.dms.homeModules.dank-material-shell
-        #        inputs.dms.homeModules.niri
       ];
 
       config = lib.mkIf (config.desktop.niri.enable && config.desktop.niri.dms.enable) {
@@ -28,12 +23,6 @@
             enable = true;
             restartIfChanged = true;
           };
-
-          # Build DMS and its Qt dependencies using nixpkgs-unstable
-          package = inputs.dms.lib.mkDmsShell pkgsUnstable;
-
-          # Use the matching Quickshell version
-          quickshell.package = pkgsUnstable.quickshell;
 
           settings = builtins.fromJSON (builtins.readFile ../../../config/dms/settings.json);
 
@@ -134,16 +123,6 @@
               };
             };
 
-            DankKDEConnect = {
-              src = pkgs.fetchFromGitHub {
-                owner = "debarchito";
-                repo = "dms-plugins";
-                rev = "3ad0e7845b62a9aca56f7959dd086b2a85655079";
-                hash = "sha256-gb+k5dsbPjV8KFFFC7Pvpm2AnMnPl+t27Okl5WoVXd8=";
-                sparseCheckout = [ "DankKDEConnect" ];
-              };
-            };
-
             DankNotepadModule = {
               src = pkgs.fetchFromGitHub {
                 owner = "debarchito";
@@ -176,6 +155,10 @@
           };
         };
 
+        systemd.user.services.dms.Service.Environment = lib.mkAfter [
+          "PATH=${config.home.profileDirectory}/bin:${config.home.homeDirectory}/.local/bin:/run/wrappers/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin"
+        ];
+
         xdg.configFile = {
           "DankMaterialShell/settings.json".source = ../../../config/dms/settings.json;
 
@@ -189,6 +172,8 @@
           "qt6ct/qt6ct.conf".source = ../../../config/qt6ct/qt6ct.conf;
 
           "niri/piri.toml".source = ../../../config/piri/piri.toml;
+
+          "dms/plugins/dankKDEConnect".source = inputs.dux-plugins + "/DankKDEConnect";
 
         };
       };

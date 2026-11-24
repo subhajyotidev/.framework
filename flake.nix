@@ -12,17 +12,27 @@
     };
 
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:duxlabs-dev/dux-shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     dsearch = {
       url = "github:duxlabs-dev/dux-search";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     dfiles = {
       url = "github:duxlabs-dev/dux-files";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    dux-plugins = {
+      url = "github:duxlabs-dev/dux-plugins";
+      flake = false;
+    };
+
+    dgop = {
+      url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

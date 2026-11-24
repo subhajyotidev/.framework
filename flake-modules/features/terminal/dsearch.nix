@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 
 {
-  flake.modules.homeManager.dsearch = {
+  flake.modules.homeManager.dsearch = { pkgs, ... }: {
     imports = [
       inputs.dsearch.homeModules.dsearch
     ];

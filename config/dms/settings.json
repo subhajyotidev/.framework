@@ -168,7 +168,7 @@
   "fixedRadius": 15,
   "clockFormat": "24h",
   "showSeconds": false,
-  "animationDuration": 400,
+  "motionDuration": 1,
   "blurBorderEnabled": false,
   "blurBorderColor": "primary",
   "blurBorderOpacity": 0.85,
@@ -220,10 +220,12 @@
       "smartAutoHide": true,
       "useOverlayLayer": false,
       "editOnRightClick": false,
+      "showEditWidgetsInContextMenu": true,
       "showOnFullscreen": false,
       "openOnOverview": true,
       "groupByApp": true,
       "separatePinnedAndRunningApps": true,
+      "showRunningApps": true,
       "restoreSpecialWorkspaceOnClick": false,
       "isolateDisplays": false,
       "indicatorStyle": "line",
@@ -294,6 +296,7 @@
   "blurredWallpaperLayer": true,
   "systemTrayIconTintMode": "primary",
   "systemTrayIconTintStrength": 200,
+  "controlCenterColumns": 8,
   "controlCenterWidgets": [
     {
       "id": "user",
@@ -682,7 +685,6 @@
   "lockPamExternallyManaged": true,
   "notificationShowTimeoutBar": true,
   "notificationPopupPosition": 3,
-  "notificationAnimationDuration": 300,
   "notificationFocusedMonitor": true,
   "osdAlwaysShowValue": true,
   "osdPosition": 5,
@@ -738,9 +740,9 @@
           "id": "focusedWindow",
           "enabled": false,
           "focusedWindowSize": 1,
-          "focusedWindowCompactMode": true,
           "focusedWindowShowIcon": false,
-          "overflowMode": "section"
+          "overflowMode": "section",
+          "focusedWindowShowAppName": false
         },
         {
           "id": "systemTray",
@@ -792,10 +794,14 @@
         },
         {
           "id": "cpuTemp",
-          "enabled": true
+          "enabled": false
         },
         {
           "id": "memUsage",
+          "enabled": false
+        },
+        {
+          "id": "systemMonitorPlus",
           "enabled": true
         }
       ],
@@ -902,7 +908,9 @@
           "id": "tray",
           "enabled": false
         }
-      ]
+      ],
+      "islandCompactThickness": 38,
+      "islandSatelliteGap": 12
     },
     {
       "id": "dot1790934412503",
@@ -935,8 +943,8 @@
           "id": "focusedWindow",
           "enabled": true,
           "focusedWindowSize": 0,
-          "focusedWindowCompactMode": true,
-          "focusedWindowShowIcon": false
+          "focusedWindowShowIcon": false,
+          "focusedWindowShowAppName": false
         }
       ],
       "centerWidgets": [
@@ -1126,5 +1134,5 @@
   "frameCloseGaps": false,
   "frameLauncherEmergeSide": "top",
   "frameLauncherArcExtender": true,
-  "configVersion": 42
+  "configVersion": 47
 }
