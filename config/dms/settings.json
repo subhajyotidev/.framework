@@ -793,14 +793,6 @@
           "enabled": true
         },
         {
-          "id": "cpuTemp",
-          "enabled": false
-        },
-        {
-          "id": "memUsage",
-          "enabled": false
-        },
-        {
           "id": "systemMonitorPlus",
           "enabled": true
         }
@@ -908,9 +900,7 @@
           "id": "tray",
           "enabled": false
         }
-      ],
-      "islandCompactThickness": 38,
-      "islandSatelliteGap": 12
+      ]
     },
     {
       "id": "dot1790934412503",
