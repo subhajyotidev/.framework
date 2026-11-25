@@ -340,6 +340,22 @@
         "type": "github"
       }
     },
+    "kdeconnect-scrcpy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795578431,
+        "narHash": "sha256-qGoQGb+zILJzLD3an1qj3Uefzs+1okzgegGRtY6gITk=",
+        "owner": "draumaz",
+        "repo": "kdeconnect-scrcpy",
+        "rev": "ea6421df0932cff98d6c09f10f9340eb97bbbddb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "draumaz",
+        "repo": "kdeconnect-scrcpy",
+        "type": "github"
+      }
+    },
     "musnix": {
       "inputs": {
         "nixpkgs": [
@@ -652,6 +668,7 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "kdeconnect-scrcpy": "kdeconnect-scrcpy",
         "musnix": "musnix",
         "niri": "niri",
         "niri-source": "niri-source",

@@ -31,6 +31,11 @@
       flake = false;
     };
 
+    kdeconnect-scrcpy = {
+      url = "github:draumaz/kdeconnect-scrcpy";
+      flake = false;
+    };
+
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";

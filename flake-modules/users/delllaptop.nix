@@ -45,6 +45,7 @@
         self.modules.homeManager.options-desktop
         self.modules.homeManager.dux-files
         self.modules.homeManager.dux-calendar
+        self.modules.homeManager.kdeconnect-scrcpy
         self.modules.homeManager.options-cursor
         self.modules.homeManager.options-daw
         self.modules.homeManager.options-terminal
@@ -63,6 +64,7 @@
           desktop.cursor.enable = true;
           daw.enable = true;
           desktop.appearance.enable = true;
+          programs.kdeconnect-scrcpy.enable = true;
           homePackaging.flatpak.enable = true;
           media.obs.enable = true;
           communication.vesktop.enable = true;

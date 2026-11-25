@@ -20,8 +20,8 @@
           wlr-which-key
           libreoffice
           davinci-resolve
-          kdePackages.dolphin
           scrcpy
+          android-tools
         ];
       };
     };
