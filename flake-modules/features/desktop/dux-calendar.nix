@@ -30,5 +30,22 @@
           "Calendar"
         ];
       };
+
+      systemd.user.services.dcal-daemon = {
+        Unit = {
+          Description = "DCal Calendar Daemon";
+          PartOf = [ "graphical-session.target" ];
+          After = [ "graphical-session.target" ];
+        };
+
+        Service = {
+          Type = "simple";
+          ExecStart = "${dcal}/bin/dcal daemon";
+          Restart = "on-failure";
+          RestartSec = "3s";
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
+      };
     };
 }
