@@ -28,9 +28,9 @@ menu:
       - key: h
         desc: Helium
         cmd: helium
-      - key: l
-        desc: LibreWolf
-        cmd: librewolf
+      - key: f
+        desc: Firefox
+        cmd: firefox
   - key: c
     desc: niri Dynamic Cast Target + Mirror
     submenu:
@@ -54,8 +54,8 @@ menu:
     desc: Explorer
     submenu:
       - key: d
-        desc: Dolphin
-        cmd: dolphin
+        desc: Dux Files
+        cmd: dfiles
       - key: n
         desc: Nautilus
         cmd: nautilus
